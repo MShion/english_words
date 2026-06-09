@@ -1,6 +1,942 @@
-english,japanese,example
-methodology,方法論,This methodology improves accuracy.
-framework,枠組み,We propose a new framework.
-evaluation,評価,The evaluation shows good performance.
-baseline,"比較基準,比較手法",We compare our method with the baseline.
-robustness,頑健性,The system has high robustness.
+﻿english,japanese,example
+progress report,進捗報告,I will give a short progress report today.
+weekly meeting,週次ミーティング,We discussed the results in the weekly meeting.
+seminar,ゼミ,I presented my research at the seminar.
+presentation,発表,My presentation focuses on landmark detection.
+slide,スライド,This slide shows the overall pipeline.
+outline,発表の流れ,"First, I will explain the outline of my talk."
+agenda,議題,The agenda includes experiments and future work.
+background,背景,The background of this study is autonomous navigation.
+motivation,動機,The motivation is to improve outdoor localization.
+objective,目的,The objective is to detect stable landmarks.
+goal,目標,Our goal is robust localization in outdoor environments.
+problem,問題,The main problem is sensor noise.
+challenge,課題,A major challenge is detecting small objects.
+proposal,提案,Our proposal uses camera and LiDAR fusion.
+approach,アプローチ,This approach combines visual and geometric information.
+method,手法,The method detects objects from images.
+methodology,方法論,The methodology consists of detection and evaluation.
+overview,概要,This figure gives an overview of the system.
+summary,要約,Here is a summary of the main results.
+conclusion,結論,"In conclusion, the proposed method is effective."
+future work,今後の課題,Future work includes testing in more environments.
+limitation,限界,One limitation is the small dataset size.
+contribution,貢献,The main contribution is a robust landmark selection method.
+discussion,議論,The discussion focuses on failure cases.
+question,質問,Thank you for your question.
+answer,回答,I will answer that question in the next slide.
+comment,コメント,I appreciate your comment.
+feedback,フィードバック,The feedback helped improve the experiment.
+clarification,明確化,Let me add a clarification about the dataset.
+assumption,仮定,This method is based on the assumption that landmarks are static.
+hypothesis,仮説,Our hypothesis is that trunks are reliable landmarks.
+evidence,根拠,The experimental results provide evidence for this claim.
+reason,理由,The reason is that the sensor resolution is limited.
+example,例,This is an example of a detected object.
+case study,事例研究,We conducted a case study on an outdoor path.
+takeaway,要点,The key takeaway is that fusion improves robustness.
+main point,要点,The main point is shown in this diagram.
+key idea,主要な考え,The key idea is to use stable objects as landmarks.
+result,結果,The result shows better localization accuracy.
+finding,発見,An important finding is that trunks are easier to detect than trees.
+observation,観察,This observation supports our design choice.
+interpretation,解釈,Our interpretation is that segmentation reduces false detections.
+comparison,比較,This comparison shows the advantage of our method.
+baseline,比較手法,We compare our method with a baseline method.
+previous work,先行研究,Previous work used tree trunks as landmarks.
+related work,関連研究,Related work includes visual SLAM and LiDAR SLAM.
+state of the art,最先端,We compare our result with state of the art methods.
+novelty,新規性,The novelty is the combination of object detection and geometry.
+significance,重要性,The significance of this study is practical outdoor navigation.
+impact,影響,The impact of sensor noise is large.
+propose,提案する,We propose a new landmark detection method.
+develop,開発する,We developed a ROS 2 package.
+implement,実装する,I implemented the node in Python.
+design,設計する,We designed the system architecture.
+construct,構築する,We constructed a dataset from outdoor images.
+build,構築する,We built a prototype system.
+create,作成する,I created labels for the dataset.
+collect,収集する,We collected images in an outdoor environment.
+annotate,アノテーションする,We annotated tree trunks in the images.
+train,学習する,We trained the model on a custom dataset.
+fine tune,微調整する,We fine tune YOLO for trunk detection.
+evaluate,評価する,We evaluate the model using test images.
+compare,比較する,We compare YOLO and RF DETR.
+analyze,分析する,We analyze the failure cases.
+investigate,調査する,We investigate the effect of lighting conditions.
+examine,調べる,We examine the relationship between distance and accuracy.
+measure,測定する,We measure inference time on the GPU.
+estimate,推定する,The system estimates the robot pose.
+predict,予測する,The model predicts object classes.
+detect,検出する,The camera detects landmarks.
+recognize,認識する,The system recognizes known objects.
+classify,分類する,The model classifies objects into categories.
+segment,分割する,The model segments the tree trunk region.
+extract,抽出する,We extract features from point clouds.
+match,照合する,The system matches landmarks between frames.
+track,追跡する,The tracker follows detected objects.
+optimize,最適化する,We optimize the parameters for real time processing.
+improve,改善する,The method improves localization accuracy.
+reduce,減らす,The filter reduces noise.
+increase,増やす,The new dataset increases detection accuracy.
+enhance,向上させる,Sensor fusion enhances robustness.
+achieve,達成する,The model achieves high accuracy.
+obtain,得る,We obtained better results with the trunk class.
+validate,検証する,We validate the method in simulation.
+demonstrate,示す,The experiments demonstrate the effectiveness of the method.
+show,示す,The figure shows the detection result.
+indicate,示す,The results indicate improved robustness.
+suggest,示唆する,The results suggest that trunk detection is useful.
+confirm,確認する,We confirmed that the node publishes messages correctly.
+observe,観察する,We observed false positives in crowded scenes.
+assume,仮定する,We assume that landmarks do not move.
+focus on,焦点を当てる,This study focuses on outdoor landmarks.
+aim to,目指す,We aim to improve autonomous navigation.
+deal with,対処する,The method deals with dynamic objects.
+address,取り組む,This study addresses landmark selection.
+apply,適用する,We apply YOLO to trunk detection.
+use,使用する,We use LiDAR for geometric verification.
+combine,組み合わせる,We combine camera and LiDAR information.
+integrate,統合する,We integrate the detector into ROS 2.
+extend,拡張する,We extend the previous method to various landmarks.
+accuracy,正解率,The accuracy improved after fine tuning.
+precision,適合率,Precision is important when false positives are costly.
+recall,再現率,Recall measures how many true objects are detected.
+F1 score,F1スコア,The F1 score balances precision and recall.
+mean average precision,平均適合率,Mean average precision is used for object detection evaluation.
+intersection over union,IoU,Intersection over union measures box overlap.
+true positive,真陽性,A true positive means a correct detection.
+false positive,偽陽性,A false positive means an incorrect detection.
+false negative,偽陰性,A false negative means a missed object.
+true negative,真陰性,A true negative means a correct rejection.
+error,誤差,The localization error decreased.
+failure,失敗,We analyze failure cases in this section.
+success rate,成功率,The success rate was high in the test environment.
+robustness,頑健性,Robustness is important in outdoor environments.
+reliability,信頼性,The reliability of the landmark is evaluated.
+stability,安定性,Static objects provide better stability.
+efficiency,効率,The efficiency of the pipeline is important.
+latency,遅延,Low latency is required for real time systems.
+throughput,処理能力,Throughput depends on GPU performance.
+frame rate,フレームレート,The frame rate decreased with a larger model.
+inference time,推論時間,Inference time was measured in milliseconds.
+processing time,処理時間,Processing time increases with image size.
+memory usage,メモリ使用量,Memory usage is lower with the nano model.
+computational cost,計算コスト,The computational cost is high for transformer models.
+model size,モデルサイズ,Model size affects deployment on edge devices.
+parameter count,パラメータ数,The parameter count is smaller in the lightweight model.
+speed,速度,YOLO has high inference speed.
+performance,性能,We compare performance on the same dataset.
+improvement,改善,The improvement is clear in the results.
+degradation,低下,Performance degradation occurs at night.
+trade off,トレードオフ,There is a trade off between speed and accuracy.
+real time,リアルタイム,The system runs in real time.
+offline,オフライン,Offline processing is acceptable for dataset creation.
+online,オンライン,Online inference is needed for robot navigation.
+generalization,汎化,Generalization to new environments is important.
+overfitting,過学習,Overfitting occurs when the dataset is too small.
+underfitting,未学習,Underfitting means the model is too simple.
+variance,分散,High variance can make results unstable.
+bias,バイアス,Dataset bias affects model performance.
+threshold,しきい値,We set the confidence threshold to 0.5.
+confidence score,信頼度スコア,The confidence score is displayed on the image.
+score,スコア,The detection score is shown in the terminal.
+metric,評価指標,Accuracy is one evaluation metric.
+benchmark,ベンチマーク,We use a benchmark dataset for comparison.
+ROS 2,ROS 2,The system is implemented in ROS 2.
+node,ノード,Each node has a specific role.
+topic,トピック,The camera image is published to a topic.
+publisher,配信側,The publisher sends image messages.
+subscriber,購読側,The subscriber receives sensor data.
+message,メッセージ,The message contains timestamped data.
+service,サービス,A service is used for request and response communication.
+action,アクション,An action is useful for long running tasks.
+parameter,パラメータ,The node reads parameters at startup.
+launch file,起動ファイル,The launch file starts multiple nodes.
+package,パッケージ,The package contains source code and configuration files.
+workspace,ワークスペース,The workspace is built with colcon.
+callback,コールバック,The callback is executed when a message arrives.
+timer,タイマー,The timer runs the function periodically.
+quality of service,QoS,Quality of service controls communication reliability.
+durability,耐久性,Durability controls whether old messages are stored.
+history,履歴,History determines how messages are buffered.
+depth,深さ,Depth sets the queue size.
+namespace,名前空間,The namespace separates multiple robots.
+remapping,リマップ,Remapping changes topic names at runtime.
+frame id,フレームID,The frame id identifies the coordinate frame.
+timestamp,タイムスタンプ,Each sensor message has a timestamp.
+header,ヘッダー,The header contains the frame id and timestamp.
+transform,座標変換,A transform represents the relationship between frames.
+static transform,静的座標変換,A static transform does not change over time.
+dynamic transform,動的座標変換,A dynamic transform changes as the robot moves.
+TF tree,TFツリー,The TF tree shows the frame relationships.
+base link,ベースリンク,The base link is the main robot frame.
+map frame,マップ座標系,The map frame is used for global localization.
+odom frame,オドム座標系,The odom frame is used for local motion estimation.
+sensor frame,センサ座標系,The sensor frame is attached to the sensor.
+robot state publisher,ロボット状態配信ノード,Robot state publisher publishes the robot transforms.
+joint state publisher,関節状態配信ノード,Joint state publisher publishes joint positions.
+URDF,URDF,The robot model is described in URDF.
+xacro,xacro,Xacro is used to generate URDF files.
+colcon,colcon,Colcon builds ROS 2 workspaces.
+source command,sourceコマンド,The source command sets the ROS environment.
+environment variable,環境変数,The environment variable controls package paths.
+ament,ament,Ament is the build system used in ROS 2.
+CMake,CMake,CMake is used for C++ ROS 2 packages.
+setup file,セットアップファイル,The setup file defines Python package settings.
+entry point,エントリーポイント,The entry point defines an executable script.
+dependency,依存関係,Dependencies are listed in the package file.
+interface,インターフェース,The interface defines message types.
+bridge,ブリッジ,The bridge connects ROS 2 and Gazebo topics.
+simulation time,シミュレーション時間,Simulation time is used in Gazebo.
+use sim time,シミュレーション時間を使う設定,The node uses the use sim time parameter.
+visualization,可視化,RViz is used for visualization.
+RViz,RViz,RViz displays sensor data and robot models.
+rosbag,rosbag,Rosbag records and replays ROS 2 topics.
+robot,ロボット,The robot moves autonomously indoors and outdoors.
+mobile robot,移動ロボット,A mobile robot requires reliable localization.
+autonomous navigation,自律走行,Autonomous navigation requires perception and planning.
+navigation,ナビゲーション,Navigation depends on localization and mapping.
+path planning,経路計画,Path planning finds a safe route.
+motion planning,動作計画,Motion planning considers robot constraints.
+obstacle avoidance,障害物回避,Obstacle avoidance is necessary in dynamic environments.
+waypoint,経由点,The robot moves toward the next waypoint.
+trajectory,軌跡,The trajectory is estimated from odometry.
+pose,位置姿勢,The pose includes position and orientation.
+position,位置,The position is represented by x and y coordinates.
+orientation,向き,The orientation is represented by a quaternion.
+quaternion,クォータニオン,A quaternion represents 3D orientation.
+rotation,回転,The rotation matrix converts coordinates.
+translation,並進,The translation vector represents movement.
+coordinate frame,座標系,Each sensor has its own coordinate frame.
+coordinate transformation,座標変換,Coordinate transformation is required for sensor fusion.
+localization,自己位置推定,Localization estimates the robot pose.
+mapping,地図生成,Mapping builds a map of the environment.
+SLAM,SLAM,SLAM estimates the robot pose and map simultaneously.
+visual SLAM,ビジュアルSLAM,Visual SLAM uses camera images.
+LiDAR SLAM,LiDAR SLAM,LiDAR SLAM uses point clouds.
+landmark,ランドマーク,Landmarks are used for localization.
+static landmark,静的ランドマーク,A static landmark is useful for long term mapping.
+dynamic object,動的物体,Dynamic objects should not be used as landmarks.
+loop closure,ループ閉じ込み,Loop closure reduces accumulated drift.
+drift,ドリフト,Odometry drift increases over time.
+pose graph,ポーズグラフ,A pose graph represents robot poses and constraints.
+graph optimization,グラフ最適化,Graph optimization improves the trajectory estimate.
+odometry,オドメトリ,Odometry estimates motion from sensors.
+wheel odometry,車輪オドメトリ,Wheel odometry can drift on slippery surfaces.
+visual odometry,ビジュアルオドメトリ,Visual odometry estimates motion from images.
+inertial measurement unit,慣性計測装置,An inertial measurement unit provides acceleration and angular velocity.
+IMU,IMU,The IMU helps estimate robot motion.
+global positioning system,全地球測位システム,GPS can provide global position outdoors.
+GPS,GPS,GPS accuracy may decrease near buildings.
+map,地図,The map is used for navigation.
+occupancy grid,占有格子地図,An occupancy grid represents free and occupied space.
+costmap,コストマップ,The costmap is used for obstacle avoidance.
+global map,大域地図,The global map covers the entire environment.
+local map,局所地図,The local map is updated around the robot.
+registration,位置合わせ,Point cloud registration aligns two scans.
+scan matching,スキャンマッチング,Scan matching estimates motion between LiDAR scans.
+nearest neighbor,最近傍,Nearest neighbor search is used in registration.
+correspondence,対応関係,Correspondences are found between landmarks.
+uncertainty,不確実性,Uncertainty is represented by covariance.
+covariance,共分散,Covariance describes estimation uncertainty.
+Kalman filter,カルマンフィルタ,A Kalman filter estimates the system state.
+extended Kalman filter,拡張カルマンフィルタ,An extended Kalman filter handles nonlinear systems.
+unscented Kalman filter,アンセンテッドカルマンフィルタ,An unscented Kalman filter is used for nonlinear estimation.
+particle filter,パーティクルフィルタ,A particle filter represents uncertainty with samples.
+sensor,センサ,The sensor provides information about the environment.
+camera,カメラ,The camera captures color images.
+monocular camera,単眼カメラ,A monocular camera has one lens.
+stereo camera,ステレオカメラ,A stereo camera estimates depth.
+RGB camera,RGBカメラ,An RGB camera captures color images.
+depth camera,深度カメラ,A depth camera measures distance.
+LiDAR,LiDAR,LiDAR measures distance using laser light.
+laser scanner,レーザスキャナ,A laser scanner provides range measurements.
+range,距離,The range measurement is noisy at long distances.
+field of view,視野角,The field of view determines the visible area.
+resolution,解像度,Higher resolution improves object details.
+sampling rate,サンプリングレート,The sampling rate affects temporal resolution.
+frequency,周波数,The sensor frequency is 10 hertz.
+calibration,キャリブレーション,Calibration aligns the camera and LiDAR.
+intrinsic parameter,内部パラメータ,Intrinsic parameters describe the camera model.
+extrinsic parameter,外部パラメータ,Extrinsic parameters describe sensor placement.
+distortion,歪み,Lens distortion must be corrected.
+noise,ノイズ,Sensor noise affects detection accuracy.
+outlier,外れ値,Outliers are removed before estimation.
+filtering,フィルタリング,Filtering reduces noise in point clouds.
+smoothing,平滑化,Smoothing makes the trajectory less noisy.
+synchronization,同期,Synchronization is required for sensor fusion.
+timestamp alignment,タイムスタンプ合わせ,Timestamp alignment reduces fusion errors.
+sensor fusion,センサ融合,Sensor fusion combines camera and LiDAR data.
+data association,データ対応付け,Data association matches observations to landmarks.
+measurement,計測値,The measurement is used to update the state.
+range image,レンジ画像,A range image represents LiDAR distance values.
+reflectance,反射強度,Reflectance can help identify objects.
+intensity,強度,LiDAR intensity depends on the surface material.
+beam,ビーム,A LiDAR beam measures one direction.
+scan,スキャン,Each scan contains many range measurements.
+point,点,"A point has x, y, and z coordinates."
+point cloud,点群,A point cloud represents 3D geometry.
+voxel,ボクセル,A voxel is a 3D grid cell.
+voxelization,ボクセル化,Voxelization reduces point cloud size.
+downsampling,ダウンサンプリング,Downsampling reduces computational cost.
+ground removal,地面除去,Ground removal extracts objects above the ground.
+clustering,クラスタリング,Clustering groups nearby points.
+cluster,クラスタ,Each cluster may correspond to an object.
+cylinder,円柱,A tree trunk can be modeled as a cylinder.
+plane,平面,A wall can be modeled as a plane.
+surface,表面,The surface normal is estimated from points.
+normal vector,法線ベクトル,A normal vector indicates surface direction.
+geometric feature,幾何特徴,Geometric features are useful for landmark selection.
+shape,形状,The shape helps identify object types.
+size,大きさ,Object size is used for filtering candidates.
+height,高さ,Height is useful for detecting poles.
+width,幅,Width is measured from the bounding box.
+distance,距離,Detection accuracy decreases with distance.
+image,画像,The image is used for object detection.
+frame,フレーム,Each video frame is processed independently.
+video,動画,The detector is applied to a video.
+pixel,画素,A pixel stores image intensity or color.
+color,色,Color information helps distinguish objects.
+brightness,明るさ,Brightness changes under different lighting conditions.
+contrast,コントラスト,Low contrast makes detection difficult.
+illumination,照明,Illumination affects image quality.
+shadow,影,Shadows may cause false detections.
+blur,ぼけ,Motion blur reduces detection accuracy.
+occlusion,遮蔽,Occlusion makes objects difficult to detect.
+viewpoint,視点,The object appearance changes with viewpoint.
+scale,スケール,Scale changes when the distance changes.
+object detection,物体検出,Object detection finds objects in images.
+object recognition,物体認識,Object recognition identifies object categories.
+image classification,画像分類,Image classification predicts one label for an image.
+semantic segmentation,セマンティックセグメンテーション,Semantic segmentation assigns a class to each pixel.
+instance segmentation,インスタンスセグメンテーション,Instance segmentation separates individual objects.
+panoptic segmentation,パノプティックセグメンテーション,Panoptic segmentation combines semantic and instance segmentation.
+mask,マスク,The mask represents the object region.
+region,領域,The region contains the detected object.
+region of interest,関心領域,The region of interest is cropped for analysis.
+bounding box,バウンディングボックス,The bounding box surrounds the detected object.
+center point,中心点,The center point is used for tracking.
+corner,角,Building corners can be useful landmarks.
+edge,エッジ,Edges are extracted from the image.
+contour,輪郭,The contour describes object boundaries.
+feature,特徴,Features are extracted from images.
+feature point,特徴点,Feature points are matched between images.
+descriptor,記述子,A descriptor represents local image appearance.
+matching,マッチング,Feature matching finds corresponding points.
+tracking,追跡,Tracking follows objects across frames.
+optical flow,オプティカルフロー,Optical flow estimates pixel motion.
+template matching,テンプレートマッチング,Template matching searches for a known pattern.
+camera pose,カメラ姿勢,Camera pose is estimated from image correspondences.
+homography,ホモグラフィ,A homography maps points between two planes.
+projection,投影,Projection maps 3D points to the image plane.
+reprojection error,再投影誤差,Reprojection error measures camera pose accuracy.
+calibration board,キャリブレーションボード,A calibration board is used for camera calibration.
+lens,レンズ,The lens affects image distortion.
+focal length,焦点距離,Focal length is an intrinsic camera parameter.
+principal point,主点,The principal point is part of the camera model.
+image plane,画像平面,3D points are projected onto the image plane.
+crop,切り抜き,We crop the detected face region.
+resize,リサイズ,Resize changes the image resolution.
+preprocessing,前処理,Preprocessing improves input quality.
+postprocessing,後処理,Postprocessing removes duplicate detections.
+non maximum suppression,非最大値抑制,Non maximum suppression removes overlapping boxes.
+machine learning,機械学習,Machine learning is used for object detection.
+deep learning,深層学習,Deep learning models require training data.
+neural network,ニューラルネットワーク,The neural network predicts object classes.
+model,モデル,The model is trained on labeled images.
+dataset,データセット,The dataset contains images and labels.
+training data,学習データ,Training data must be correctly annotated.
+test data,テストデータ,Test data is used for final evaluation.
+validation data,検証データ,Validation data is used to tune parameters.
+label,ラベル,Each object has a class label.
+class,クラス,The trunk class represents tree trunks.
+category,カテゴリ,The model predicts an object category.
+annotation,アノテーション,Annotation quality affects model performance.
+ground truth,正解データ,Ground truth is used for evaluation.
+prediction,予測,The prediction includes class and confidence.
+inference,推論,Inference runs the trained model on new data.
+training,学習,Training updates the model weights.
+fine tuning,ファインチューニング,Fine tuning adapts a model to a new dataset.
+pretrained model,事前学習済みモデル,A pretrained model reduces training cost.
+weight,重み,Model weights are learned during training.
+loss function,損失関数,The loss function measures prediction error.
+optimizer,最適化手法,The optimizer updates the model weights.
+learning rate,学習率,The learning rate controls update size.
+batch size,バッチサイズ,Batch size affects memory usage.
+epoch,エポック,An epoch is one pass through the training data.
+iteration,反復,Each iteration updates the model once.
+backbone,バックボーン,The backbone extracts visual features.
+neck,ネック,The neck combines features at different scales.
+head,ヘッド,The detection head predicts boxes and classes.
+encoder,エンコーダ,The encoder converts input into features.
+decoder,デコーダ,The decoder produces final predictions.
+transformer,トランスフォーマー,A transformer uses attention mechanisms.
+attention,注意機構,Attention focuses on important features.
+self attention,自己注意,Self attention relates elements within the same input.
+cross attention,交差注意,Cross attention relates queries to image features.
+embedding,埋め込み,Embedding represents data as vectors.
+query,クエリ,Object queries are used in transformer detectors.
+anchor,アンカー,Anchor boxes are used in some detectors.
+feature map,特徴マップ,A feature map contains spatial features.
+convolution,畳み込み,Convolution extracts local image patterns.
+pooling,プーリング,Pooling reduces spatial resolution.
+activation function,活性化関数,An activation function adds nonlinearity.
+normalization,正規化,Normalization stabilizes training.
+dropout,ドロップアウト,Dropout helps prevent overfitting.
+regularization,正則化,Regularization improves generalization.
+data augmentation,データ拡張,Data augmentation increases dataset diversity.
+transfer learning,転移学習,Transfer learning uses knowledge from another dataset.
+supervised learning,教師あり学習,Supervised learning uses labeled data.
+unsupervised learning,教師なし学習,Unsupervised learning uses unlabeled data.
+semi supervised learning,半教師あり学習,Semi supervised learning uses labeled and unlabeled data.
+open vocabulary,オープンボキャブラリー,Open vocabulary models can detect classes described by text.
+zero shot,ゼロショット,Zero shot detection works without class specific training.
+prompt,プロンプト,The prompt describes the target object.
+segmentation model,セグメンテーションモデル,The segmentation model outputs masks.
+foundation model,基盤モデル,A foundation model is trained on large scale data.
+real time detector,リアルタイム検出器,A real time detector is suitable for robotics.
+YOLO,YOLO,YOLO is often used for real time object detection.
+RF DETR,RF DETR,RF DETR is a transformer based object detector.
+SAM,SAM,SAM is used for segmentation.
+Segment Anything Model,Segment Anything Model,Segment Anything Model can generate object masks.
+DETR,DETR,DETR uses object queries and transformers.
+DINO,DINO,DINO is related to transformer based detection.
+COCO,COCO,COCO is a common object detection dataset.
+Roboflow,Roboflow,Roboflow is used to manage datasets.
+CVAT,CVAT,CVAT is used for manual annotation.
+labeling tool,ラベリングツール,A labeling tool is used to create annotations.
+bounding box annotation,矩形アノテーション,Bounding box annotation is common for object detection.
+mask annotation,マスクアノテーション,Mask annotation is used for segmentation.
+polygon annotation,ポリゴンアノテーション,Polygon annotation can represent object boundaries.
+automatic annotation,自動アノテーション,Automatic annotation can reduce labeling time.
+manual correction,手動修正,Manual correction improves annotation quality.
+class imbalance,クラス不均衡,Class imbalance can reduce model performance.
+train split,学習分割,The train split is used for model training.
+validation split,検証分割,The validation split is used during training.
+test split,テスト分割,The test split is used for final evaluation.
+export format,エクスポート形式,The dataset export format must match the training code.
+YOLO format,YOLO形式,YOLO format stores labels in text files.
+COCO format,COCO形式,COCO format stores annotations in JSON.
+checkpoint,チェックポイント,A checkpoint stores model weights during training.
+configuration file,設定ファイル,The configuration file defines training parameters.
+class name,クラス名,The class name appears in the detection output.
+confidence threshold,信頼度しきい値,The confidence threshold filters weak detections.
+overlap threshold,重なりしきい値,The overlap threshold controls duplicate removal.
+duplicate detection,重複検出,Duplicate detection occurs when one object is detected multiple times.
+false detection,誤検出,False detection should be reduced.
+missed detection,検出漏れ,Missed detection is a serious problem for landmarks.
+small object,小物体,Small object detection is difficult at long distances.
+large object,大物体,Large objects are easier to detect.
+tree,木,The tree class may include leaves and branches.
+trunk,幹,The trunk class is useful for detecting individual trees.
+branch,枝,Branches can confuse tree detection.
+leaf,葉,Leaves may cause unstable segmentation.
+pole,ポール,A pole can be used as a landmark.
+bench,ベンチ,A bench is a possible outdoor landmark.
+vending machine,自動販売機,A vending machine is easy to recognize visually.
+signboard,看板,A signboard can be detected by camera.
+manhole,マンホール,A manhole may be visible from the camera.
+guardrail,ガードレール,A guardrail is a long static object.
+stairs,階段,Stairs can be detected by geometry and vision.
+slope,スロープ,A slope is important for navigation.
+planter,プランター,A planter can be used as a landmark.
+outdoor unit,室外機,An outdoor unit has a distinctive shape.
+water tap,水道,An outdoor water tap may be a small landmark.
+building corner,建物の角,A building corner is useful for localization.
+wall text,壁の文字,Wall text can be recognized by OCR.
+traffic sign,標識,A traffic sign is a stable object.
+bicycle rack,サイクルスタンド,A bicycle rack may appear near buildings.
+clock tower,時計台,A clock tower is a distinctive landmark.
+3D object detection,3D物体検出,3D object detection estimates boxes in 3D space.
+bounding box regression,バウンディングボックス回帰,Bounding box regression predicts object locations.
+3D bounding box,3Dバウンディングボックス,A 3D bounding box represents object size and pose.
+center estimation,中心推定,Center estimation is used in 3D detection.
+orientation estimation,向き推定,Orientation estimation predicts object direction.
+point feature,点特徴,Point features are extracted from point clouds.
+set abstraction,集合抽象化,Set abstraction is used in PointNet plus plus.
+PointNet,PointNet,PointNet processes unordered point clouds.
+PointNet plus plus,PointNet++,PointNet plus plus captures local geometric structure.
+VoteNet,VoteNet,VoteNet predicts object centers from point clouds.
+3DETR,3DETR,3DETR applies transformers to 3D object detection.
+PointPillars,PointPillars,PointPillars converts point clouds into pseudo images.
+CenterPoint,CenterPoint,CenterPoint detects object centers in point clouds.
+pillar,ピラー,A pillar is a vertical column in point cloud representation.
+bird's eye view,鳥瞰図,Bird's eye view is often used in LiDAR perception.
+voxel grid,ボクセル格子,A voxel grid discretizes 3D space.
+nearest point,最近点,The nearest point is used for distance computation.
+sampling,サンプリング,Sampling reduces the number of points.
+farthest point sampling,最遠点サンプリング,Farthest point sampling selects diverse points.
+ball query,球近傍探索,Ball query finds neighboring points within a radius.
+grouping,グループ化,Grouping collects local neighboring points.
+local feature,局所特徴,Local features describe nearby geometry.
+global feature,大域特徴,Global features describe the entire object.
+point density,点密度,Point density decreases with distance.
+sparse data,疎なデータ,LiDAR point clouds are sparse at long range.
+dense data,密なデータ,Dense data provides more detailed geometry.
+range sensor,距離センサ,A range sensor measures distance to objects.
+geometric consistency,幾何的一貫性,Geometric consistency improves landmark reliability.
+static world,静的世界,The map should represent the static world.
+dynamic scene,動的シーン,Dynamic scenes include moving people and vehicles.
+instance aware,インスタンス認識型,Instance aware mapping treats each object separately.
+map update,地図更新,Map update removes dynamic objects.
+object instance,物体インスタンス,Each object instance is tracked separately.
+static object,静的物体,Static objects are suitable for landmarks.
+movable object,移動可能物体,Movable objects should be avoided as landmarks.
+background object,背景物体,Background objects often remain stable.
+program,プログラム,The program subscribes to image topics.
+source code,ソースコード,The source code is managed with Git.
+repository,リポジトリ,The repository contains the ROS 2 package.
+commit,コミット,Each commit should describe one change.
+pull request,プルリクエスト,A pull request is used for code review.
+issue,課題,We opened an issue for the bug.
+bug,バグ,The bug caused the node to crash.
+debugging,デバッグ,Debugging helped identify the error.
+log,ログ,The log shows the error message.
+warning,警告,The warning does not stop execution.
+exception,例外,The exception occurred during inference.
+stack trace,スタックトレース,The stack trace shows where the error occurred.
+command line,コマンドライン,The command line is used to run the script.
+terminal,ターミナル,The terminal displays detection results.
+script,スクリプト,The script processes video frames.
+function,関数,The function returns detected boxes.
+class definition,クラス定義,The class definition contains node behavior.
+module,モジュール,The module is imported by the main script.
+library,ライブラリ,The library provides image processing functions.
+framework,フレームワーク,The framework simplifies deep learning development.
+API,API,The API is used to load the model.
+configuration,設定,The configuration controls model behavior.
+setting,設定,The setting can be changed from the launch file.
+option,オプション,The option enables GPU inference.
+argument,引数,The argument specifies the input file.
+path,パス,The path points to the dataset folder.
+directory,ディレクトリ,The directory contains training images.
+file,ファイル,The file stores annotation labels.
+format,形式,The label format must be correct.
+installation,インストール,Installation requires several dependencies.
+version,バージョン,The library version affects compatibility.
+compatibility,互換性,Compatibility with CUDA is important.
+environment,環境,The environment uses Ubuntu and CUDA.
+virtual environment,仮想環境,A virtual environment isolates Python packages.
+container,コンテナ,A Docker container provides a reproducible environment.
+Docker image,Dockerイメージ,The Docker image includes CUDA libraries.
+compile,コンパイルする,The C++ code must compile without errors.
+runtime,実行時,The runtime error occurred during model loading.
+execution,実行,Execution starts from the main function.
+deployment,デプロイ,Deployment on the robot requires optimization.
+GPU,GPU,The GPU accelerates inference.
+CPU,CPU,CPU inference is slower than GPU inference.
+CUDA,CUDA,CUDA enables GPU computation.
+cuDNN,cuDNN,cuDNN is required for some deep learning libraries.
+driver,ドライバ,The NVIDIA driver must match the CUDA version.
+memory,メモリ,GPU memory limits model size.
+simulation,シミュレーション,Simulation allows testing before real experiments.
+Gazebo,Gazebo,Gazebo simulates the robot and environment.
+world file,ワールドファイル,The world file defines the simulation environment.
+SDF,SDF,SDF describes models and worlds in Gazebo.
+model file,モデルファイル,The model file defines object geometry.
+mesh,メッシュ,The mesh is used for robot visualization.
+collision,衝突,Collision geometry is used for physics simulation.
+inertia,慣性,Inertia affects physical behavior.
+joint,関節,The joint connects two links.
+link,リンク,A link represents a rigid body.
+spawn,生成する,We spawn the robot in Gazebo.
+entity,エンティティ,The robot is an entity in the simulation.
+plugin,プラグイン,The plugin connects Gazebo and ROS 2.
+physics engine,物理エンジン,The physics engine simulates motion.
+model state,モデル状態,Model state includes pose and velocity.
+velocity,速度,Velocity is estimated from odometry.
+acceleration,加速度,Acceleration is measured by the IMU.
+friction,摩擦,Friction affects wheel motion.
+gravity,重力,Gravity is simulated by the physics engine.
+sensor plugin,センサプラグイン,The sensor plugin publishes simulated data.
+paper,論文,This paper proposes a new SLAM method.
+abstract,概要,The abstract summarizes the paper.
+introduction,序論,The introduction explains the motivation.
+literature review,文献レビュー,The literature review summarizes previous studies.
+proposed method,提案手法,The proposed method uses object level landmarks.
+experiment section,実験章,The experiment section describes the evaluation setup.
+ablation study,アブレーション実験,The ablation study evaluates each component.
+dataset description,データセット説明,The dataset description includes sensor settings.
+implementation detail,実装詳細,Implementation details are described in this section.
+result table,結果表,The result table compares several methods.
+figure,図,Figure 3 shows the network architecture.
+table,表,Table 1 reports the evaluation metrics.
+equation,式,The equation defines the loss function.
+notation,記法,The notation is introduced before the method.
+variable,変数,The variable represents the robot state.
+term,項,Each term in the loss has a weight.
+loss term,損失項,The loss term penalizes box error.
+hyperparameter,ハイパーパラメータ,Hyperparameters are selected using validation data.
+architecture,構成,The architecture consists of a backbone and decoder.
+pipeline,パイプライン,The pipeline processes sensor data step by step.
+component,構成要素,The component can be replaced with another model.
+input,入力,The input is an RGB image.
+output,出力,The output is a set of bounding boxes.
+formulation,定式化,The formulation describes the problem mathematically.
+objective function,目的関数,The objective function is minimized during training.
+optimization problem,最適化問題,Localization can be formulated as an optimization problem.
+constraint,制約,The constraint limits the possible solutions.
+dataset split,データセット分割,The dataset split separates training and testing data.
+experimental setup,実験設定,The experimental setup is described in detail.
+quantitative result,定量的結果,Quantitative results are shown in the table.
+qualitative result,定性的結果,Qualitative results are shown in the images.
+visual result,視覚的結果,Visual results help explain detection quality.
+failure case,失敗例,Failure cases occur under low light conditions.
+discussion section,考察章,The discussion section explains the meaning of the results.
+conclusion section,結論章,The conclusion section summarizes the contributions.
+reference,参考文献,The reference list includes related papers.
+citation,引用,Citation is necessary when using previous work.
+author,著者,The author proposed a new method.
+conference,会議,The paper was published at a robotics conference.
+journal,ジャーナル,The journal article provides detailed experiments.
+reviewer,査読者,The reviewer asked about the evaluation protocol.
+supplementary material,補足資料,Supplementary material contains additional results.
+reproducibility,再現性,Reproducibility is important for research.
+open source,オープンソース,The code is available as open source.
+license,ライセンス,The license defines how the dataset can be used.
+Could you explain,説明していただけますか,Could you explain the difference between these methods?
+Could you clarify,明確にしていただけますか,Could you clarify the evaluation setting?
+What do you mean by,何を意味していますか,What do you mean by robust landmark?
+How did you,どのようにしましたか,How did you collect the dataset?
+Why did you,なぜしましたか,Why did you choose YOLO for this task?
+What is the difference,違いは何ですか,What is the difference between tree and trunk detection?
+In your experiment,あなたの実験では,"In your experiment, how many images did you use?"
+According to the result,結果によると,"According to the result, the proposed method is faster."
+As shown in the figure,図に示すように,"As shown in the figure, the detector finds the trunk."
+Compared with,と比較して,"Compared with the baseline, our method is more accurate."
+In this case,この場合,"In this case, the LiDAR data is noisy."
+For example,例えば,"For example, a pole can be used as a landmark."
+On the other hand,一方で,"On the other hand, small objects are difficult to detect."
+However,しかし,"However, the method fails at night."
+Therefore,したがって,"Therefore, we need more training data."
+Moreover,さらに,"Moreover, the model runs in real time."
+In addition,加えて,"In addition, we evaluate the method in simulation."
+First,最初に,"First, we describe the system overview."
+Next,次に,"Next, we explain the dataset."
+Finally,最後に,"Finally, we discuss future work."
+In conclusion,結論として,"In conclusion, the proposed method improves robustness."
+This means that,これはつまり,This means that trunk detection is more stable.
+The reason is that,その理由は,The reason is that tree regions overlap.
+It depends on,に依存する,It depends on the dataset quality.
+I think that,私はと考えます,I think that sensor fusion is necessary.
+I would like to ask,質問したいです,I would like to ask about the evaluation metric.
+I am not sure,確信がありません,I am not sure why the result decreased.
+Could you repeat that,もう一度言っていただけますか,Could you repeat that question?
+Could you speak more slowly,もう少しゆっくり話していただけますか,"Could you speak more slowly, please?"
+Let me check,確認します,Let me check the result slide.
+Let me explain,説明します,Let me explain the pipeline again.
+That is a good point,良い指摘です,That is a good point.
+I agree,同意します,I agree with your suggestion.
+I see,わかりました,"I see, thank you for the explanation."
+Thank you for your feedback,フィードバックありがとうございます,Thank you for your feedback.
+I will consider it,検討します,I will consider it in future work.
+requirement,要件,The system requirement is real time detection.
+specification,仕様,The specification defines the input and output.
+condition,条件,The experiment was performed under different conditions.
+scenario,シナリオ,The scenario includes outdoor navigation.
+indoor,屋内,Indoor environments have stable lighting.
+outdoor,屋外,Outdoor environments are more challenging.
+campus,キャンパス,The robot is tested on a campus path.
+orchard,果樹園,The previous study used an orchard environment.
+road,道路,Road surface affects wheel odometry.
+sidewalk,歩道,The sidewalk contains many possible landmarks.
+building,建物,Building corners can be stable landmarks.
+tree trunk,木の幹,Tree trunk detection is useful for orchard navigation.
+landmark candidate,ランドマーク候補,Each detected object becomes a landmark candidate.
+selection,選択,Landmark selection removes unstable objects.
+verification,検証,LiDAR verification reduces false detections.
+candidate,候補,The candidate is evaluated by geometry.
+staticness,静的性質,Staticness is important for landmark reliability.
+distinctiveness,識別しやすさ,Distinctiveness helps recognize the same object again.
+repeatability,再現性,Repeatability is important for feature detection.
+visibility,視認性,Visibility decreases under occlusion.
+availability,利用可能性,Availability depends on the environment.
+robust feature,頑健な特徴,A robust feature can be detected repeatedly.
+local feature descriptor,局所特徴記述子,A local feature descriptor is used for matching.
+semantic information,意味情報,Semantic information helps select landmarks.
+geometric information,幾何情報,Geometric information is obtained from LiDAR.
+appearance,見た目,Object appearance changes with lighting.
+texture,テクスチャ,Texture is useful for image matching.
+material,材質,Material affects LiDAR reflectance.
+surface normal,表面法線,Surface normal is estimated from neighboring points.
+curvature,曲率,Curvature describes local surface shape.
+density,密度,Point density affects clustering.
+radius,半径,The radius is estimated for cylindrical objects.
+diameter,直径,The diameter of the trunk is measured from the point cloud.
+height estimation,高さ推定,Height estimation helps distinguish poles and trunks.
+width estimation,幅推定,Width estimation is based on image boxes.
+distance estimation,距離推定,Distance estimation combines camera and LiDAR.
+object position,物体位置,Object position is transformed into the map frame.
+object class,物体クラス,Object class is predicted by the detector.
+object mask,物体マスク,The object mask is used to crop the region.
+object center,物体中心,The object center is used as a landmark position.
+duplicate removal,重複除去,Duplicate removal prevents repeated landmarks.
+map representation,地図表現,The map representation stores landmark positions.
+landmark map,ランドマーク地図,The landmark map contains semantic objects.
+semantic map,意味地図,A semantic map includes object labels.
+topological map,トポロジカル地図,A topological map represents places and connections.
+metric map,メトリック地図,A metric map stores geometric distances.
+local coordinate,局所座標,Local coordinates are relative to the robot.
+global coordinate,大域座標,Global coordinates are represented in the map frame.
+pose estimation,姿勢推定,Pose estimation uses landmark observations.
+state estimation,状態推定,State estimation combines prediction and measurement.
+motion model,運動モデル,The motion model predicts the next state.
+observation model,観測モデル,The observation model relates landmarks to measurements.
+measurement update,観測更新,The measurement update corrects the predicted state.
+prediction step,予測ステップ,The prediction step uses odometry.
+update step,更新ステップ,The update step uses sensor observations.
+state vector,状態ベクトル,The state vector contains pose and landmark positions.
+control input,制御入力,The control input represents robot motion commands.
+covariance matrix,共分散行列,The covariance matrix represents uncertainty.
+Jacobian,ヤコビアン,The Jacobian linearizes nonlinear functions.
+nonlinear system,非線形システム,Robot motion is a nonlinear system.
+linearization,線形化,Linearization approximates nonlinear functions.
+optimization,最適化,Optimization minimizes the error function.
+least squares,最小二乗法,Least squares is used for fitting models.
+RANSAC,RANSAC,RANSAC removes outliers during model fitting.
+ICP,ICP,ICP aligns two point clouds.
+NDT,NDT,NDT is a point cloud registration method.
+DBSCAN,DBSCAN,DBSCAN clusters points based on density.
+Euclidean clustering,ユークリッドクラスタリング,Euclidean clustering groups nearby points.
+cylinder fitting,円柱フィッティング,Cylinder fitting estimates trunk shape.
+plane fitting,平面フィッティング,Plane fitting detects walls and ground.
+ground plane,地面平面,The ground plane is removed before clustering.
+segmented region,分割領域,The segmented region corresponds to an object.
+candidate extraction,候補抽出,Candidate extraction finds possible landmarks.
+feature extraction,特徴抽出,Feature extraction is applied to the point cloud.
+feature matching,特徴照合,Feature matching associates current observations with map landmarks.
+data preprocessing,データ前処理,Data preprocessing removes noise and invalid points.
+data cleaning,データクリーニング,Data cleaning improves dataset quality.
+data collection,データ収集,Data collection was performed on campus.
+data labeling,データラベリング,Data labeling is necessary for supervised learning.
+quality control,品質管理,Quality control checks annotation errors.
+annotation guideline,アノテーション指針,An annotation guideline keeps labels consistent.
+label consistency,ラベルの一貫性,Label consistency improves training quality.
+ambiguous case,曖昧なケース,Ambiguous cases should be discussed before labeling.
+edge case,例外的なケース,Edge cases often cause failures.
+lighting condition,照明条件,Lighting conditions affect image quality.
+weather condition,天候条件,Weather conditions affect sensor measurements.
+nighttime,夜間,Nighttime detection is more difficult.
+daytime,昼間,Daytime images have better visibility.
+rain,雨,Rain can reduce LiDAR reliability.
+fog,霧,Fog affects camera and LiDAR sensing.
+sunlight,日光,Strong sunlight may cause overexposure.
+overexposure,露出オーバー,Overexposure hides image details.
+underexposure,露出不足,Underexposure occurs in dark scenes.
+reflection,反射,Reflection can cause false LiDAR points.
+occluded object,遮蔽された物体,An occluded object is difficult to detect.
+partially visible,部分的に見える,The trunk is partially visible behind leaves.
+background clutter,背景のごちゃつき,Background clutter causes false detections.
+crowded scene,混雑したシーン,Crowded scenes are difficult for detection.
+domain shift,ドメインシフト,Domain shift occurs between training and test environments.
+domain adaptation,ドメイン適応,Domain adaptation improves performance in new environments.
+simulation to real,シミュレーションから実環境へ,Simulation to real transfer is challenging.
+real world experiment,実環境実験,Real world experiments are necessary for validation.
+field test,実地試験,A field test was conducted outdoors.
+experimental trial,実験試行,Each experimental trial follows the same route.
+route,経路,The robot route includes trees and buildings.
+repeat experiment,再実験,We repeat experiments to check stability.
+statistical analysis,統計分析,Statistical analysis supports the conclusion.
+average,平均,The average error is reported in the table.
+standard deviation,標準偏差,Standard deviation shows result variation.
+median,中央値,The median is robust to outliers.
+minimum,最小値,The minimum error occurred in the first trial.
+maximum,最大値,The maximum error occurred in a difficult scene.
+distribution,分布,The error distribution is shown in the histogram.
+histogram,ヒストグラム,The histogram shows the frequency of errors.
+graph,グラフ,The graph compares accuracy and speed.
+plot,プロット,The plot shows trajectory error over time.
+axis,軸,The x axis represents time.
+legend,凡例,The legend explains each line.
+caption,キャプション,The caption describes the figure.
+table row,表の行,Each table row represents one method.
+table column,表の列,Each table column represents one metric.
+parameter tuning,パラメータ調整,Parameter tuning improves performance.
+sensitivity analysis,感度分析,Sensitivity analysis shows the effect of parameters.
+ablation,アブレーション,Ablation removes one component to evaluate its effect.
+component analysis,構成要素分析,Component analysis identifies important modules.
+error analysis,誤差分析,Error analysis reveals failure patterns.
+qualitative analysis,定性的分析,Qualitative analysis uses visual examples.
+quantitative analysis,定量的分析,Quantitative analysis uses numerical metrics.
+realtime constraint,リアルタイム制約,Realtime constraints limit model complexity.
+edge device,エッジデバイス,An edge device has limited computational resources.
+embedded system,組込みシステム,An embedded system runs on the robot.
+Jetson,Jetson,Jetson is often used for robot perception.
+hardware limitation,ハードウェア制約,Hardware limitations affect model choice.
+software stack,ソフトウェア構成,The software stack includes ROS 2 and CUDA.
+middleware layer,ミドルウェア層,The middleware layer handles communication.
+perception module,認識モジュール,The perception module detects landmarks.
+mapping module,地図生成モジュール,The mapping module updates the landmark map.
+planning module,計画モジュール,The planning module generates a path.
+control module,制御モジュール,The control module sends velocity commands.
+system architecture,システム構成,The system architecture is shown in the overview slide.
+end to end,エンドツーエンド,The end to end system runs from sensing to navigation.
+modular design,モジュール設計,Modular design makes debugging easier.
+input stream,入力ストリーム,The input stream is the camera image topic.
+output topic,出力トピック,The output topic publishes detection results.
+parameter server,パラメータサーバ,The parameter server stores configuration values.
+configuration parameter,設定パラメータ,Configuration parameters are loaded at startup.
+log file,ログファイル,The log file records runtime information.
+experiment log,実験ログ,Experiment logs help reproduce results.
+dataset folder,データセットフォルダ,The dataset folder contains images and labels.
+training script,学習スクリプト,The training script starts fine tuning.
+inference script,推論スクリプト,The inference script processes test images.
+evaluation script,評価スクリプト,The evaluation script computes metrics.
+checkpoint file,チェックポイントファイル,The checkpoint file stores trained weights.
+model weights,モデル重み,Model weights are loaded before inference.
+pretrained weights,事前学習済み重み,Pretrained weights improve convergence.
+convergence,収束,Training convergence was stable.
+gradient,勾配,Gradients are used to update weights.
+backpropagation,誤差逆伝播,Backpropagation computes gradients.
+loss curve,損失曲線,The loss curve shows training progress.
+validation curve,検証曲線,The validation curve indicates overfitting.
+training progress,学習進捗,Training progress is monitored with logs.
+learning schedule,学習スケジュール,The learning schedule changes the learning rate.
+early stopping,早期終了,Early stopping prevents overfitting.
+checkpoint selection,チェックポイント選択,Checkpoint selection is based on validation score.
+model comparison,モデル比較,Model comparison helps choose the best detector.
+fair comparison,公平な比較,Fair comparison requires the same hardware and dataset.
+same condition,同一条件,The models were evaluated under the same condition.
+hardware setup,ハードウェア構成,The hardware setup includes a GPU and camera.
+software version,ソフトウェアバージョン,Software versions are listed for reproducibility.
+reproducible experiment,再現可能な実験,A reproducible experiment needs clear settings.
+experimental protocol,実験手順,The experimental protocol defines how tests are conducted.
+evaluation protocol,評価手順,The evaluation protocol defines the metrics and dataset.
+implementation issue,実装上の問題,An implementation issue caused slow inference.
+compatibility issue,互換性の問題,A compatibility issue occurred with CUDA.
+dependency issue,依存関係の問題,The dependency issue was fixed by changing versions.
+runtime warning,実行時警告,Runtime warnings appeared during inference.
+error message,エラーメッセージ,The error message indicated a missing file.
+file path,ファイルパス,The file path must be correct.
+absolute path,絶対パス,An absolute path starts from the root directory.
+relative path,相対パス,A relative path depends on the current directory.
+current directory,現在のディレクトリ,The current directory affects file loading.
+permission,権限,Permission is required to access the device.
+administrator privilege,管理者権限,Administrator privilege may be required for installation.
+installation guide,インストール手順,The installation guide explains each step.
+troubleshooting,トラブルシューティング,Troubleshooting identifies the cause of errors.
+workaround,回避策,A workaround was used to avoid the compatibility problem.
+solution,解決策,The solution is to install the correct library version.
+remaining issue,残っている問題,The remaining issue is real time performance.
+next step,次のステップ,The next step is collecting more trunk images.
+milestone,マイルストーン,The milestone is to run the system on the robot.
+schedule,スケジュール,The schedule includes dataset creation and training.
+deadline,締め切り,The deadline for the presentation is next week.
+task,タスク,The task is to improve trunk detection.
+subtask,サブタスク,Each subtask is assigned to one module.
+priority,優先度,The highest priority is dataset quality.
+progress,進捗,Progress was made on the ROS 2 implementation.
+status,状態,The current status is under evaluation.
+completed,完了した,The face detection module is completed.
+in progress,進行中,Dataset annotation is in progress.
+pending,保留中,The outdoor experiment is still pending.
+issue list,課題一覧,The issue list is shown at the end.
+risk,リスク,The main risk is insufficient training data.
+backup plan,代替案,The backup plan is to use semi automatic annotation.
+deliverable,成果物,The deliverable is a trained trunk detector.
+prototype,試作版,The prototype runs on recorded video.
+demo,デモ,The demo shows real time detection.
+demonstration,実演,The demonstration uses a campus video.
+user interface,ユーザーインターフェース,The user interface displays detection results.
+visual feedback,視覚的フィードバック,Visual feedback helps check model output.
+terminal output,ターミナル出力,The terminal output shows class names and scores.
+saved image,保存画像,The saved image contains bounding boxes.
+output video,出力動画,The output video shows detection results.
+result folder,結果フォルダ,The result folder stores annotated images.
+experiment folder,実験フォルダ,The experiment folder contains logs and outputs.
+documentation,ドキュメント,Documentation explains how to run the package.
+README file,READMEファイル,The README file describes installation steps.
+tutorial,チュートリアル,The tutorial explains how to train the model.
+manual,マニュアル,The manual describes the labeling procedure.
+reference implementation,参考実装,The reference implementation helps understand the method.
+sample code,サンプルコード,Sample code is used for quick testing.
+minimum example,最小例,A minimum example helps isolate the problem.
+test case,テストケース,The test case checks the function behavior.
+unit test,単体テスト,A unit test checks one function.
+integration test,結合テスト,An integration test checks multiple modules together.
+system test,システムテスト,A system test evaluates the full pipeline.
+validation test,検証テスト,Validation tests check whether requirements are met.
+deployment test,デプロイテスト,Deployment tests run the system on the robot.
+real robot,実ロボット,The real robot test is planned next.
+simulation experiment,シミュレーション実験,The simulation experiment uses Gazebo.
+recorded data,記録データ,Recorded data is used for offline evaluation.
+live data,リアルタイムデータ,Live data is processed during robot operation.
+camera image topic,カメラ画像トピック,The camera image topic provides input frames.
+LiDAR point cloud topic,LiDAR点群トピック,The LiDAR point cloud topic provides 3D data.
+detection result topic,検出結果トピック,The detection result topic publishes boxes and labels.
+map topic,地図トピック,The map topic publishes the occupancy grid.
+robot pose topic,ロボット姿勢トピック,The robot pose topic publishes estimated pose.
+velocity command,速度指令,The velocity command controls robot motion.
+control loop,制御ループ,The control loop runs at a fixed frequency.
+update rate,更新周期,The update rate affects responsiveness.
+queue size,キューサイズ,Queue size controls message buffering.
+communication delay,通信遅延,Communication delay affects real time performance.
+packet loss,パケットロス,Packet loss can occur in wireless communication.
+data stream,データストリーム,The data stream is processed continuously.
+safety,安全性,Safety is important for robot experiments.
+emergency stop,緊急停止,An emergency stop is required for real robot tests.
+collision avoidance,衝突回避,Collision avoidance prevents accidents.
+human detection,人物検出,Human detection improves safety.
+face detection,顔検出,Face detection finds faces in panoramic images.
+face recognition,顔認識,Face recognition identifies known people.
+person detection,人物検出,Person detection is used for human robot interaction.
+speech recognition,音声認識,Speech recognition converts speech to text.
+dialogue system,対話システム,The dialogue system generates responses.
+voice command,音声コマンド,The robot receives voice commands.
+natural language processing,自然言語処理,Natural language processing is used for dialogue.
+text recognition,文字認識,Text recognition detects words on signs.
+OCR,OCR,OCR can read wall text and signboards.
+multimodal,マルチモーダル,A multimodal system uses multiple types of data.
+camera LiDAR fusion,カメラLiDAR融合,Camera LiDAR fusion improves landmark detection.
+semantic SLAM,セマンティックSLAM,Semantic SLAM uses object labels in mapping.
+object level mapping,物体レベル地図生成,Object level mapping stores landmarks as objects.
+long term mapping,長期地図生成,Long term mapping must handle environmental changes.
+map maintenance,地図保守,Map maintenance removes outdated objects.
+environmental change,環境変化,Environmental change affects long term localization.
+seasonal change,季節変化,Seasonal change affects tree appearance.
+viewpoint change,視点変化,Viewpoint change affects object recognition.
+appearance change,見た目の変化,Appearance change occurs under different lighting.
+sensor placement,センサ配置,Sensor placement affects field of view.
+mounting position,取り付け位置,The mounting position is calibrated before experiments.
+robot platform,ロボットプラットフォーム,The robot platform carries the sensors.
+wheelchair robot,車椅子型ロボット,A wheelchair robot moves in human environments.
+differential drive,差動二輪駆動,Differential drive robots control left and right wheels.
+mobile base,移動台車,The mobile base carries the perception system.
+actuator,アクチュエータ,Actuators move the robot.
+motor,モータ,Motors drive the wheels.
+battery,バッテリー,Battery capacity limits experiment time.
+power supply,電源,The power supply must support the sensors.
+network connection,ネットワーク接続,Network connection is needed for remote operation.
+remote control,遠隔操作,Remote control is used during testing.
+data recording,データ記録,Data recording saves sensor topics.
+data replay,データ再生,Data replay allows repeated evaluation.
+visual inspection,目視確認,Visual inspection checks annotation quality.
+manual labeling,手動ラベリング,Manual labeling is accurate but time consuming.
+semi automatic labeling,半自動ラベリング,Semi automatic labeling reduces annotation effort.
+automatic labeling,自動ラベリング,Automatic labeling uses a model to create labels.
+human verification,人による確認,Human verification is needed after automatic labeling.
+annotation error,アノテーション誤り,Annotation errors reduce training quality.
+label noise,ラベルノイズ,Label noise causes unstable training.
+dataset quality,データセット品質,Dataset quality is more important than model size.
+training quality,学習品質,Training quality depends on labels and settings.
+evaluation quality,評価品質,Evaluation quality depends on test data design.
+research plan,研究計画,The research plan includes three phases.
+experimental plan,実験計画,The experimental plan defines the route and conditions.
+implementation plan,実装計画,The implementation plan starts with the ROS 2 node.
+development plan,開発計画,The development plan prioritizes data collection.
+presentation practice,発表練習,Presentation practice helps explain the method clearly.
+technical term,専門用語,Technical terms should be defined in the presentation.
+plain explanation,平易な説明,A plain explanation helps the audience understand.
+research question,研究課題,The research question is how to select reliable landmarks.
+problem setting,問題設定,The problem setting defines inputs and outputs.
+scope,範囲,The scope is limited to outdoor environments.
+target object,対象物体,The target object is the tree trunk.
+target environment,対象環境,The target environment is an outdoor campus.
+target application,対象アプリケーション,The target application is autonomous navigation.
+practical application,実用的応用,Practical applications include delivery robots.
+social implementation,社会実装,Social implementation requires safety and reliability.
+research direction,研究方針,The research direction is semantic landmark SLAM.
+technical contribution,技術的貢献,The technical contribution is robust landmark selection.
+experimental contribution,実験的貢献,The experimental contribution is real world validation.
+academic contribution,学術的貢献,The academic contribution is a new mapping approach.
