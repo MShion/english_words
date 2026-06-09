@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>英単語リスト</title>
+
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      max-width: 700px;
+      margin: auto;
+      background: #f7f7f7;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    input,
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 8px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    button {
+      border: none;
+      border-radius: 8px;
+      background: #333;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      background: #999;
+      cursor: not-allowed;
+    }
+
+    .card {
+      background: white;
+      padding: 15px;
+      margin-top: 15px;
+      border-radius: 12px;
+      box-shadow: 0 2px 5px #ccc;
+    }
+
+    .word {
+      font-size: 28px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .meaning {
+      color: #444;
+      margin-top: 12px;
+      font-size: 18px;
+    }
+
+    .example {
+      color: #666;
+      margin-top: 8px;
+      font-size: 15px;
+    }
+
+    .status {
+      color: #555;
+      margin-top: 12px;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    #quiz,
+    #list {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>英単語リスト</h1>
+
+  <input id="csvFile" type="file" accept=".csv,text/csv" onchange="loadCsvFile(event)">
+
+  <button id="quizButton" onclick="showQuiz()" disabled>ランダムクイズ</button>
+  <button id="listButton" onclick="showListOnly()" disabled>リスト一覧</button>
+
+  <div id="status" class="status">words.csv を読み込み中...</div>
+  <div id="quiz"></div>
+  <div id="list"></div>
+
+  <script>
+    let words = [];
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function parseCsv(csvText) {
+      const rows = [];
+      let row = [];
+      let field = "";
+      let inQuotes = false;
+
+      for (let i = 0; i < csvText.length; i++) {
+        const char = csvText[i];
+        const nextChar = csvText[i + 1];
+
+        if (char === '"' && inQuotes && nextChar === '"') {
+          field += '"';
+          i++;
+        } else if (char === '"') {
+          inQuotes = !inQuotes;
+        } else if (char === "," && !inQuotes) {
+          row.push(field);
+          field = "";
+        } else if ((char === "\n" || char === "\r") && !inQuotes) {
+          if (char === "\r" && nextChar === "\n") {
+            i++;
+          }
+          row.push(field);
+          rows.push(row);
+          row = [];
+          field = "";
+        } else {
+          field += char;
+        }
+      }
+
+      if (field || row.length > 0) {
+        row.push(field);
+        rows.push(row);
+      }
+
+      return rows.filter((csvRow) => csvRow.some((cell) => cell.trim()));
+    }
+
+    function rowsToWords(rows) {
+      if (rows.length < 2) {
+        return [];
+      }
+
+      const headers = rows[0].map((header) => header.trim().toLowerCase());
+      const englishIndex = headers.indexOf("english");
+      const japaneseIndex = headers.indexOf("japanese");
+      const exampleIndex = headers.indexOf("example");
+
+      if (englishIndex === -1 || japaneseIndex === -1) {
+        throw new Error("CSVに english と japanese の列が必要です");
+      }
+
+      return rows.slice(1)
+        .map((row) => ({
+          english: (row[englishIndex] || "").trim(),
+          japanese: (row[japaneseIndex] || "").trim(),
+          example: exampleIndex === -1 ? "" : (row[exampleIndex] || "").trim()
+        }))
+        .filter((word) => word.english && word.japanese);
+    }
+
+    function setStatus(message) {
+      document.getElementById("status").textContent = message;
+    }
+
+    function setButtonsEnabled(enabled) {
+      document.getElementById("quizButton").disabled = !enabled;
+      document.getElementById("listButton").disabled = !enabled;
+    }
+
+    function applyCsv(csvText, sourceName) {
+      words = rowsToWords(parseCsv(csvText));
+      if (words.length === 0) {
+        throw new Error("読み込める単語がありません");
+      }
+
+      hideAll();
+      setButtonsEnabled(true);
+      setStatus(`${sourceName} から ${words.length}件の単語を読み込みました`);
+    }
+
+    async function loadDefaultCsv() {
+      try {
+        const response = await fetch("words.csv");
+        if (!response.ok) {
+          throw new Error(`words.csv の取得に失敗しました: ${response.status}`);
+        }
+        applyCsv(await response.text(), "words.csv");
+      } catch (error) {
+        words = [];
+        setButtonsEnabled(false);
+        setStatus(`words.csv を自動読み込みできませんでした。CSVファイルを選択してください。`);
+      }
+    }
+
+    function loadCsvFile(event) {
+      const file = event.target.files[0];
+      if (!file) {
+        words = [];
+        setButtonsEnabled(false);
+        setStatus("CSVファイルを選択してください");
+        return;
+      }
+
+      const reader = new FileReader();
+
+      reader.onload = function() {
+        try {
+          applyCsv(reader.result, file.name);
+        } catch (error) {
+          words = [];
+          setButtonsEnabled(false);
+          setStatus(`${error.message}。CSVを確認してください。`);
+        }
+      };
+
+      reader.onerror = function() {
+        words = [];
+        setButtonsEnabled(false);
+        setStatus("CSVファイルの読み込みに失敗しました");
+      };
+
+      reader.readAsText(file, "UTF-8");
+    }
+
+    function hideAll() {
+      document.getElementById("quiz").style.display = "none";
+      document.getElementById("list").style.display = "none";
+    }
+
+    function showQuiz() {
+      if (words.length === 0) {
+        alert("単語がありません");
+        return;
+      }
+
+      hideAll();
+
+      const randomIndex = Math.floor(Math.random() * words.length);
+      const word = words[randomIndex];
+      const quiz = document.getElementById("quiz");
+
+      quiz.innerHTML = `
+        <div class="card">
+          <h2>クイズ</h2>
+          <div class="word">${escapeHtml(word.english)}</div>
+
+          <div id="answerArea" style="display:none;">
+            <div class="meaning"><strong>意味:</strong> ${escapeHtml(word.japanese)}</div>
+            <div class="example"><strong>例文:</strong> ${escapeHtml(word.example || "なし")}</div>
+          </div>
+
+          <button id="answerButton" onclick="showAnswer()">答えを見る</button>
+          <button id="nextButton" onclick="showQuiz()" style="display:none;">次の問題</button>
+        </div>
+      `;
+
+      quiz.style.display = "block";
+    }
+
+    function showAnswer() {
+      document.getElementById("answerArea").style.display = "block";
+      document.getElementById("answerButton").style.display = "none";
+      document.getElementById("nextButton").style.display = "block";
+    }
+
+    function showListOnly() {
+      hideAll();
+      showList();
+      document.getElementById("list").style.display = "block";
+    }
+
+    function showList() {
+      const list = document.getElementById("list");
+      list.innerHTML = "";
+
+      words.forEach((word, index) => {
+        list.innerHTML += `
+          <div class="card">
+            <div class="word">${index + 1}. ${escapeHtml(word.english)}</div>
+            <div class="meaning">${escapeHtml(word.japanese)}</div>
+            <div class="example">${escapeHtml(word.example || "")}</div>
+          </div>
+        `;
+      });
+    }
+    loadDefaultCsv();
+  </script>
+
+</body>
+</html>
